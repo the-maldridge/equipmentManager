@@ -1,0 +1,4 @@
+change pages to php, use includes for common stuff at the top
+use either python or php for backend, this would be an excellent time
+to learn php.  Consider using php for ease of session cookies to authenticate
+users.
