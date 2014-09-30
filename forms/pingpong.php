@@ -3,25 +3,18 @@
     <title>Ping Pong Checkout</title>
   </head>
   <body>
-    <form action="../handlers/parseform.php" method="post">
-      <p>What building are you in:
-	<select>
-	  <option value="RHS">Residence Hall South</option>
-	  <option value="RHN">Residence Hall North</option>
-	  <option value="RHW">Residence Hall West</option>
-	  <option value="RHSW">Residence Hall SouthWest</option>
-	  <option value="RHNW">Residence Hall NorthWest</option>
-	</select>
-      </p>
+    <form action="../handlers/parseform.php" method="get">
+      <?php require("common.php"); ?>
+      <input name="item" type="hidden" value="pingpong">
       <p>How many Ping Pong balls are being checked out:
-	<select>
+	<select name="quantity">
 	  <option value="1">1</option>
 	  <option value="2">2</option>
 	  <option value="3">3</option>
 	</select>
       </p>
       <p>How many Ping Pong Paddles are being checked out:
-	<select>
+	<select name="players">
 	  <option value="1">1</option>
 	  <option value="2">2</option>
 	  <option value="3">3</option>

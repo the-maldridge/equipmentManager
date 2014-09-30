@@ -1,4 +1,0 @@
-Form from: <?php echo $_GET['item']; ?>
-building: <?php echo $_GET['building']; ?>
-number of items: <?php echo $_GET['quantity']; ?>
-number of players: <?php echo $_GET['players']; ?>
