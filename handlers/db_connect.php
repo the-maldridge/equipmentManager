@@ -16,4 +16,10 @@ if (mysqli_connect_errno()) {
 } else {
 echo "<p>db success</p>";
 }
+
+if(mysql_query("USE EQCHECKOUT")) {
+  echo "selection successful";
+} else {
+  die("did not select database " . mysql_error());
+}
 ?>

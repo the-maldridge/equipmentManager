@@ -20,4 +20,13 @@ number of items: $quantity<br />
 number of players: $players
 DOC;
 
+echo "<br />commiting to database";
+$SQL = "INSERT INTO checkout (building, name, id, item, quantity, people) VALUES ('$bldg', '$name', '$sid', '$item', '$quantity', '$players')";
+echo "<br />Executing: " . $SQL;
+
+if(!mysql_query($SQL, $DBCON)) {
+  die("Error: ".mysql_error($DBCON));
+}
+
+mysql_close($DBCON);
 ?>
