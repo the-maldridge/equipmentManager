@@ -1,13 +1,19 @@
-<? php require("db_connect.php");
+<?php
+echo "connecting to database";
 
-$item=mysqli_real_escape_string($DBCON, $_GET['item']);
-$bldg=mysqli_real_escape_string($DBCON, $_GET['buiing']);
-$name=mysqli_real_escape_string($DBCON, $_GET['name']);
-$sid=mysqli_real_escape_string($DBCON, $_GET['sid']);
-$quantiy=mysqli_real_escape_string($DBCON, $_GET['quantity']);
-$players=mysqli_real_escape_string($DBCON, $_GET['players']);
+require("db_connect.php");
+echo "<br />parsing form";
+
+$item=mysql_real_escape_string($_GET['item']);
+$bldg=mysql_real_escape_string($_GET['building']);
+$name=mysql_real_escape_string($_GET['name']);
+$sid=mysql_real_escape_string($_GET['sid']);
+$quantity=mysql_real_escape_string($_GET['quantity']);
+$players=mysql_real_escape_string($_GET['players']);
+echo "<br />values retrieved";
 
 echo <<< DOC
+<br />
 Form from: $item<br />
 building: $bldg<br />
 number of items: $quantity<br />
