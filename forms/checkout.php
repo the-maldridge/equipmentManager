@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Equipment Checkout</title>
-<link rel="stylesheet" type="text/css" href="assets/style.css">
+<link rel="stylesheet" type="text/css" href="../assets/style.css">
   </head>
   <body>
 <div id="outer">
