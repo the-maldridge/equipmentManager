@@ -1,5 +1,5 @@
 <?php
-require("handlers/db_connect.php");
+require("db_connect.php");
 
 $coutid=$_GET["coutid"];
 $confirm=$_GET["confirm"];
