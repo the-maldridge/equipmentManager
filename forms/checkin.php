@@ -9,7 +9,7 @@
 <div id="content" style="width:400px;">
 
 <?php
-require("db_connect.php");
+require("../util/db_connect.php");
 
 $coutid=$_GET["coutid"];
 $confirm=$_GET["confirm"];

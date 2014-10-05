@@ -112,7 +112,7 @@ if(empty($formState) && !empty($item)) {
   //form state has been aquired at finish state
 
   //time to access the database
-  require("db_connect.php");
+  require("../util/db_connect.php");
   
   //escape anything odd in the input strings
   $item=mysql_real_escape_string($_GET["item"]);
