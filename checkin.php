@@ -1,3 +1,13 @@
+<html>
+<head>
+<title>Equipment Checkin</title>
+<link rel="stylesheet" type="text/css" href="assets/style.css">
+</head>
+<body>
+<div id="outer">
+<div id="inner">
+<div id="content" style="width:400px;">
+
 <?php
 require("db_connect.php");
 
@@ -80,3 +90,9 @@ if(!empty($formState) && $formState=="Finish") {
  
 mysql_close($DBCON);
 ?>
+
+</div>
+</div>
+</div>
+</body>
+</html>
