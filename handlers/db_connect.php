@@ -5,21 +5,15 @@ $DBHOST="localhost";
 $DBPORT=3306;
 $DBNAME="EQCHECKOUT";
 
-echo "php is running";
-
 $DBCON = mysql_connect($DBHOST, $USERNAME, $PASSWORD, $DBNAME);
 
 if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   echo "<br />No use continuing without the database server...";
   die();
-} else {
-echo "<p>db success</p>";
-}
+} 
 
-if(mysql_query("USE EQCHECKOUT")) {
-  echo "selection successful";
-} else {
+if(!mysql_query("USE EQCHECKOUT")) {
   die("did not select database " . mysql_error());
 }
 ?>
