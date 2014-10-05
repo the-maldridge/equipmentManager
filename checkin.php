@@ -16,23 +16,28 @@ if(empty($coutid) && empty($confirm)) {
   $SQL="SELECT * FROM checkout WHERE timein IS NULL";
   $itemsout=mysql_query($SQL, $DBCON);
 
-  echo "<table cellpadding=4 border=2>\n";
-  echo "<tr><th>Student Name</th><th>Item</th><th>Action</th></tr>\n";
+  if(mysql_num_rows($itemsout)==0) {
+    echo "No items are currently checked out";
+  } else {
 
-  while($row = mysql_fetch_array($itemsout)) {
-    $rid=$row["index"];
-    $name=$row["name"];
-    $stuff=$row["item"];
+    echo "<table cellpadding=4 border=2>\n";
+    echo "<tr><th>Student Name</th><th>Item</th><th>Action</th></tr>\n";
+
+    while($row = mysql_fetch_array($itemsout)) {
+      $rid=$row["index"];
+      $name=$row["name"];
+      $stuff=$row["item"];
+      
+      echo "<tr><td>$name</td><td>$stuff</td>";
+      echo "<td valign=\"middle\">\n";
+      echo "\t<form action=\"checkin.php\" method=\"get\">\n";
+      echo "\t<input name=\"coutid\" type=hidden value=$rid>\n";
+      echo "\t<input type=Submit value=\"Check in\">\n";
+      echo "</form></td></tr>\n";
+    }
     
-    echo "<tr><td>$name</td><td>$stuff</td>";
-    echo "<td valign=\"middle\">\n";
-    echo "\t<form action=\"checkin.php\" method=\"get\">\n";
-    echo "\t<input name=\"coutid\" type=hidden value=$rid>\n";
-    echo "\t<input type=Submit value=\"Check in\">\n";
-    echo "</form></td></tr>\n";
+    echo "</table>";
   }
-
-  echo "</table>";
 }
 
 if(!empty($coutid) && empty($confirm)) {
@@ -61,11 +66,14 @@ if(!empty($coutid) && $confirm=="Yes") {
 }
 
 if(!empty($formState) && $formState=="Finish") {
-  $damage=empty($damage)?true:false;
+  $damage=empty($damage)?false:true;
   $curtime=date("Y-m-d H:i:s");
   $SQL="UPDATE checkout SET damage='$damage', timein='$curtime' WHERE `index`=$coutid";
   if(!mysql_query($SQL, $DBCON)) {
     die("Serious checkin error".mysql_error());
+  } else {
+    echo "Commit successful; redirecting...";
+    echo "<meta http-equiv=\"refresh\" content=\"3; url=index.html\">";
   }
 }
  
