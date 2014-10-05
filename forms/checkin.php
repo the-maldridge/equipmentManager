@@ -84,7 +84,7 @@ if(!empty($formState) && $formState=="Finish") {
     die("Serious checkin error".mysql_error());
   } else {
     echo 'Commit successful; redirecting...';
-    echo '<meta http-equiv="refresh" content="3; url=index.html">';
+    echo '<meta http-equiv="refresh" content="3; url=../index.html">';
   }
 }
  

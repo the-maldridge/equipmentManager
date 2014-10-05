@@ -130,7 +130,7 @@ if(empty($formState) && !empty($item)) {
     die("Error: ".mysql_error($DBCON));
   } else {
     echo "<br />Form success, redirecting to main page...";
-    echo '<meta http-equiv="refresh" content="3; url=index.html">';
+    echo '<meta http-equiv="refresh" content="3; url=../index.html">';
   }
 
   //remember to close out the database uplink

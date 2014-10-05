@@ -1,5 +1,5 @@
 <?php
-require("data/db.conf");
+require("../data/db.conf");
 
 $DBCON = mysql_connect($DBHOST, $USERNAME, $PASSWORD, $DBNAME);
 
