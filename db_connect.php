@@ -1,8 +1,5 @@
 <?php
-$USERNAME="deskworker";
-$PASSWORD="foobar";
-$DBHOST="localhost";
-$DBNAME="EQCHECKOUT";
+require("data/db.conf");
 
 $DBCON = mysql_connect($DBHOST, $USERNAME, $PASSWORD, $DBNAME);
 
