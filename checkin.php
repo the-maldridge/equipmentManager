@@ -31,20 +31,20 @@ if(empty($coutid) && empty($confirm)) {
     echo 'No items are currently checked out';
   } else {
 
-    echo '<table cellpadding=4 border=2>\n';
-    echo '<tr><th>Student Name</th><th>Item</th><th>Action</th></tr>\n';
+    echo '<table cellpadding=4 border=2>';
+    echo '<tr><th>Student Name</th><th>Item</th><th>Action</th></tr>';
 
     while($row = mysql_fetch_array($itemsout)) {
       $rid=$row["index"];
       $name=$row["name"];
       $stuff=$row["item"];
       
-      echo '<tr><td>$name</td><td>$stuff</td>';
-      echo '<td valign="middle">\n';
-      echo '\t<form action="checkin.php" method="get">\n';
-      echo '\t<input name="coutid" type=hidden value=$rid>\n';
-      echo '\t<input type=Submit value="Check in">\n';
-      echo '</form></td></tr>\n';
+      echo '<tr><td>'.$name.'</td><td>'.$stuff.'</td>';
+      echo '<td valign="middle">';
+      echo '<form action="checkin.php" method="get">';
+      echo '<input name="coutid" type=hidden value="'.$rid.'">';
+      echo '<input type=Submit value="Check in">';
+      echo '</form></td></tr>';
     }
     
     echo '</table>';
@@ -60,20 +60,20 @@ if(!empty($coutid) && empty($confirm)) {
       $data=mysql_fetch_array($row);
       echo 'Are you sure you want to check in ' . $data["item"] . " from " . $data["name"];
       echo '<form action="checkin.php" method="get">';
-      echo '\n\t<input type="hidden" name="coutid" value=$coutid>';
-      echo '\n\t<input type="submit" name="confirm" value="No">';
-      echo '\n\t<input type="submit" name="confirm" value="Yes">';
-      echo '\n</form>';
+      echo '<input type="hidden" name="coutid" value="'.$coutid.'">';
+      echo '<input type="submit" name="confirm" value="No">';
+      echo '<input type="submit" name="confirm" value="Yes">';
+      echo '</form>';
     }
 }
 
 if(!empty($coutid) && $confirm=="Yes" && $formState!="Finish") {
   echo '<form action="checkin.php" method="get">';
-  echo '\n\t<input type="hidden" name="coutid" value=$coutid>';
-  echo '\n\t<input type="hidden" name="confirm" value=$confirm>';
-  echo '\n\tAre any items damaged: <input type="checkbox" name="damage" value="Yes">';
-  echo '\n\t<input type="submit" name="formState" value="Finish">';
-  echo '\n</form>';
+  echo '<input type="hidden" name="coutid" value="'.$coutid.'">';
+  echo '<input type="hidden" name="confirm" value="'.$confirm.'">';
+  echo 'Are any items damaged: <input type="checkbox" name="damage" value="Yes">';
+  echo '<input type="submit" name="formState" value="Finish">';
+  echo '</form>';
 }
 
 if(!empty($formState) && $formState=="Finish") {
