@@ -51,7 +51,33 @@ if(empty($formState) && !empty($item)) {
       <option value="6">6</option>
       </select>
       </p>';
-  }
+  } else if($item=="pool") {
+    echo '
+<input type="hidden" name="quantity" value="1">
+<p>How many cues are being checked out:
+<select name="players">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+</select>
+</p>';
+  } else if($item=="foosball") {
+    echo '
+<input type="hidden" name="quantity" value="1">
+<input type="hidden" name="players" value="1">';
+  } else if($item=="kitchen") {
+    echo '
+<input type="hidden" name="quantity" value="1">
+<input type="hidden" name="players" value="1">';
+  } else if($item=="room") {
+    echo '
+<select name="quantity">
+<option value="0">Classroom</option>
+<option value="1">Multipurpose Room (MPR)</option>
+</select>
+<input type="hidden" name="players" value="1">';
+  }    
 
   //end of form
   echo '<input type="submit" value="Continue!" />
