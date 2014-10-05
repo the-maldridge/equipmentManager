@@ -18,8 +18,8 @@ $damage=$_GET["damage"];
 
 if(!empty($confirm) && $confirm=="No") {
   //handle the form being cancelled
-  echo '<meta http-equiv=\"refresh" content="3; url=checkin.php">';
-  echo 'Cancelled checkin; redirecting to checkin main...';
+  echo '<meta http-equiv="refresh" content="3; url=../index.html">';
+  echo 'Cancelled checkin; redirecting to main page';
 }
 
 if(empty($coutid) && empty($confirm)) {
