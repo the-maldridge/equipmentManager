@@ -1,3 +1,12 @@
+<html>
+  <head>
+    <title>Equipment Checkout</title>
+<link rel="stylesheet" type="text/css" href="assets/style.css">
+  </head>
+  <body>
+<div id="outer">
+<div id="inner">
+   <div id="content" style="width:400px;">
 <?php
 //this file contains huge echoing sections of html, you've been warned
 
@@ -31,6 +40,7 @@ if(empty($formState) && !empty($item)) {
   echo '<select name="building">';
   $buildings=file("data/buildings.txt");
   foreach($buildings as $bldgnum => $buildingName) {
+    $buildingName=trim($buildingName);
     echo '<option value="'.$buildingName.'">'.$buildingName.'</option>';
   }
   echo '</select>';
@@ -114,7 +124,7 @@ if(empty($formState) && !empty($item)) {
   
   //compose the SQL for the query
   $SQL = "INSERT INTO checkout (building, name, id, item, quantity, people) VALUES ('$bldg', '$name', '$sid', '$item', '$quantity', '$players')";
-
+    echo "Attempted to run ".$SQL."\n";
   if(!mysql_query($SQL, $DBCON)) {
     echo "Attempted to run ".$SQL."\n";
     die("Error: ".mysql_error($DBCON));
@@ -126,5 +136,9 @@ if(empty($formState) && !empty($item)) {
   //remember to close out the database uplink
   mysql_close($DBCON);
 }
-
 ?>
+</div>
+</div>
+</div>
+</body>
+</html>
