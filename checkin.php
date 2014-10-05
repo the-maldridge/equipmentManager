@@ -56,7 +56,7 @@ if(!empty($coutid) && empty($confirm)) {
     }
 }
 
-if(!empty($coutid) && $confirm=="Yes") {
+if(!empty($coutid) && $confirm=="Yes" && $formState!="Finish") {
   echo "<form action=\"checkin.php\" method=\"get\">";
   echo "\n\t<input type=\"hidden\" name=\"coutid\" value=$coutid>";
   echo "\n\t<input type=\"hidden\" name=\"confirm\" value=$confirm>";
