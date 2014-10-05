@@ -2,7 +2,6 @@
 $USERNAME="deskworker";
 $PASSWORD="foobar";
 $DBHOST="localhost";
-$DBPORT=3306;
 $DBNAME="EQCHECKOUT";
 
 $DBCON = mysql_connect($DBHOST, $USERNAME, $PASSWORD, $DBNAME);
