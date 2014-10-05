@@ -124,7 +124,6 @@ if(empty($formState) && !empty($item)) {
   
   //compose the SQL for the query
   $SQL = "INSERT INTO checkout (building, name, id, item, quantity, people) VALUES ('$bldg', '$name', '$sid', '$item', '$quantity', '$players')";
-    echo "Attempted to run ".$SQL."\n";
   if(!mysql_query($SQL, $DBCON)) {
     echo "Attempted to run ".$SQL."\n";
     die("Error: ".mysql_error($DBCON));
