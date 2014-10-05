@@ -20,13 +20,12 @@ if(empty($item)) {
 if(empty($formState) && !empty($item)) {
   //send the base form
   echo '<form action="checkout.php" method="get">
-    <select name="building">
-    <option value="RHS">Residence Hall South</option>
-    <option value="RHN">Residence Hall North</option>
-    <option value="RHW">Residence Hall West</option>
-    <option value="RHSW">Residence Hall SouthWest</option>
-    <option value="RHNW">Residence Hall NorthWest</option>
-    </select>
+    <select name="building">';
+  $buildings=file("data/buildings.txt");
+  foreach($buildings as $bldgnum => $buildingName) {
+    echo '<option value="'.$buildingName.'">'.$buildingName.'</option>';
+  }
+    echo '</select>
     
     <input type="text" name="name" value="Student Name">
     <input type="text" name="sid" value="Student ID #">
