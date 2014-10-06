@@ -38,7 +38,7 @@ if(empty($formState) && !empty($item)) {
 
   //get the buildings from a data file
   echo '<select name="building">';
-  $buildings=file("data/buildings.txt");
+  $buildings=file("../data/buildings.txt");
   foreach($buildings as $bldgnum => $buildingName) {
     $buildingName=trim($buildingName);
     echo '<option value="'.$buildingName.'">'.$buildingName.'</option>';
@@ -47,7 +47,7 @@ if(empty($formState) && !empty($item)) {
 
   //get resident information
   echo '<input type="text" name="name" value="Student Name">';
-  echo '<input type="text" name="sid" value="Student ID #">';
+  echo '<input type="text" name="sid" size="10" value="Student ID #">';
 
   //keep track of what we are checking out
   echo '<input name="item" type="hidden" value="'.$item.'">';
