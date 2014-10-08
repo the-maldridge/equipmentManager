@@ -9,7 +9,7 @@ if (mysqli_connect_errno()) {
   die();
 } 
 
-if(!mysql_query("USE EQCHECKOUT")) {
+if(!mysql_query("USE $DBNAME")) {
   die("did not select database " . mysql_error());
 }
 ?>
