@@ -6,15 +6,20 @@
   <body>
 <div id="outer">
 <div id="inner">
-   <div id="content" style="width:400px;">
+<div id="content" style="width:400px;">
 <?php
-//this file contains huge echoing sections of html, you've been warned
 
+   if(!empty($_GET["item"])) {
+     $item=$_GET["item"];
+   } else {
+     $item=null;
+   }
 
-//figure out where we are in the process
-$item=$_GET["item"];
-$formState=$_GET["formState"];
-
+if(!empty($_GET["formState"])) {
+  $formState=$_GET["formState"];
+} else {
+  $formState=null;
+}
 
 if(empty($item)) {
   //we don't currently have state, so send the initial form data

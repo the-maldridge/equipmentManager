@@ -11,10 +11,29 @@
 <?php
 require("../util/db_connect.php");
 
-$coutid=$_GET["coutid"];
-$confirm=$_GET["confirm"];
-$formState=$_GET["formState"];
-$damage=$_GET["damage"];
+if(!empty($_GET["coutid"])) {
+  $coutid=$_GET["coutid"];
+} else {
+  $coutid=null;
+}
+
+if(!empty($_GET["confirm"])) {
+  $confirm=$_GET["confirm"];
+} else {
+  $confirm=null;
+}
+
+if(!empty($_GET["formState"])) {
+  $formState=$_GET["formState"];
+} else {
+  $formState=null;
+}
+
+if(!empty($_GET["damage"])) {
+  $damage=$_GET["damage"];
+} else {
+  $damage=null;
+}
 
 if(!empty($confirm) && $confirm=="No") {
   //handle the form being cancelled
