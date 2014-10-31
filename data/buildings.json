@@ -1,0 +1,23 @@
+{
+    "buildings": {
+	"RHW": {
+	    "coord": {
+		"name":"Michael Aldridge",
+		"email":"aldridge.mac@gmail.com"
+	    },
+	    "groups":"common"
+	}
+    },
+    "groups": {
+	"common": {
+	    "pingpong":{
+		"disptext":"Ping Pong",
+		"deadline":false
+	    },
+	    "pool": {
+		"disptext":"Pool",
+		"deadline":false
+	    }
+	}
+    }
+}

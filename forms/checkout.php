@@ -8,6 +8,8 @@
 <div id="inner">
 <div id="content" style="width:400px;">
 <?php
+   require("../util/lib.php");
+   $config = getConfig("../data/buildings.json");
 
    if(!empty($_GET["item"])) {
      $item=$_GET["item"];
@@ -22,15 +24,14 @@ if(!empty($_GET["formState"])) {
 }
 
 if(empty($item)) {
-  //we don't currently have state, so send the initial form data
+  $bldg = "RHW";
+  $items = getItemList($config, $bldg)[0];
+
   echo '<form action="checkout.php" method="get">';
   echo '<select name="item">';
-  echo '<option value="pingpong">Ping Pong</option>';
-  echo '<option value="pool">Pool</option>';
-  echo '<option value="foosball">FoosBall</option>';
-  echo '<option value="kitchen">Kitchen</option>';
-  echo '<option value="cart">Cart</option>';
-  echo '<option value="room">Room</option>';
+  foreach($items as $itemKey => $itemDict) {
+    echo "<option value='$itemKey'>".$itemDict['disptext']."</option>";
+  }
   echo '</select>';
   echo '<input type="submit" value="Go!">';
   echo '</form>';
